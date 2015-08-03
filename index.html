@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>No sl0pe</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
+
+    
+    
+    <script src="maps.js" type="text/javascript"></script>
+</head>
+<body>
+
+  <div id="myHeading">
+    <p2> hlil </p2>  
+   
+    <p3> lilh </p3> 
+  </div>
+   <img id="myimg" src="logo3.jpg"  ></img> 
+   
+
+
+        
+    <div id="inputSpaces">
+      <div id="from">
+        <div id="ya"></div>
+          <from> FROM: <input type="text" id="start" style="width:225px;" name="from"></from>
+      </div>
+      <div id="to">
+        <div id="ya2"></div>
+        <to> TO: <input type="text"  id="end" style="width:225px;" name="to"></to>
+      </div>
+
+      <a onclick="enterValues()" type="submit" id="submitBtn" name="submit" value="submit" class="myButton" > Get No Sl0pe!</a>
+
+    </div>
+    <br><br>
+    
+    <div id="nav">     
+        
+        <p><u>Hill Tracker</u></p>
+        <p id="upward">Upward Climb:</p>
+        <p id="downward">Downward Climb:</p>
+
+        <h5 id="time">Total Time:</h5>
+        <h5 id="distance">Total Distance:</h5>
+
+        <input class="button" name="reset" type="reset" value="Reset to Suggestion" onclick="resetValues()" />
+
+
+        <!--
+        //wheelchairs: (1/12)
+        //walking: 0.2
+        //bikes max: (0.4)
+        //bikes comfort: (0.2)
+        //driving: 0.2
+
+        the value determines what slopes to avoid
+        -->
+
+        <select id="travelMethod">
+          <option value=(1/12)>Wheelchair</option>
+          <option value=0.4>Bike Max</option>
+          <option value=0.2>Bike Comfort</option>
+          <option value=0.3>Driving</option>
+          <option value=0.3 selected>Walking</option>
+        </select>
+
+        <select id="routeChosen" onchange="changeCurrentRoute(this)">
+          <option value=0 selected="">Google Recommendation: 1</option>
+        </select>
+        
+
+         <p id="steps"></p>
+        
+    </div>
+    
+    <div id="map-canvas"></div>
+    <div id="warnings_panel" style="width:100%;height:10%;text-align:center"></div>
+
+
+
+    <div id = "footer" class="site-footer" style="color: #B5D8CC ;"> 
+        <div class="page-wrap">
+      <footer>
+        <br>
+       <p><img src="triangle2.png" id="img2" ></p>
+      <h1>
+      <p><i style="color:grey;">Contact information: </i><br>
+      destinymartinez505@gmail.com<br> 
+      brittneyhill7@yahoo.com  <br> 
+      helenalmtm@gmail.com <br> 
+      juhnayee@gmail.com </p>
+      </h1>
+      
+      </div>
+      
+      </div>
+    </footer>
+
+</body>
+
+
+
+</html>
