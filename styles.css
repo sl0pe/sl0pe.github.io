@@ -1,0 +1,246 @@
+
+@font-face { font-family:hill; src: url('Hill.ttf'); } 
+ @font-face { font-family:hill2; src: url('Hill2.ttf'); }
+ @font-face { font-family:trash; src: url('trash.ttf'); }
+ 
+  
+
+  #to{
+    position: relative;
+    margin-left: 80px;
+    display: inline-block;
+    float: center;
+ 
+  }
+  #from{
+    position: relative;
+    display: inline-block;
+    float: left;
+ 
+  }
+  #inputSpaces{
+    font-family: courier new;
+    font-size: 150%;
+    position: relative;
+    left: 22%;
+    right:30px;
+    top:100px;
+    
+  }
+
+  #start{
+    position: absolute;
+    left: 80px;
+    right: 30px;
+    height: 20px;
+    top: 30px;
+  }
+
+  #ya {
+  position: relative;
+  left: 70px;
+  width: 250px;
+  height: 40px;
+  top: 23px;
+  background-color: #66CCFF;
+  -webkit-animation-name: example; /* Chrome, Safari, Opera */
+  -webkit-animation-duration: 10s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  border-radius:3px;
+}
+  /* Chrome, Safari, Opera */
+@-webkit-keyframes example {
+  0%   {background-color: #66CCFF;}
+  30%  {background-color: #89A7A7;}
+  60%  {background-color: #B5D8CC;}
+  90%  {background-color: #0066FF;}
+  100% {background-color: #66CCFF;}
+}
+#ya2 {
+  position: relative;
+  left: 40px;
+  width: 250px;
+  height: 40px;
+  top: 23px;
+  background-color: #66CCFF;
+  -webkit-animation-name: example; /* Chrome, Safari, Opera */
+  -webkit-animation-duration: 10s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  border-radius:3px;
+}
+  /* Chrome, Safari, Opera */
+@-webkit-keyframes example {
+  0%   {background-color: #66CCFF;}
+  30%  {background-color: #89A7A7;}
+  60%  {background-color: #0066FF;}
+  90%  {background-color: #B5D8CC;}
+  100% {background-color: #66CCFF;} 
+}
+
+#end{
+    position: absolute;
+    left: 50px;
+    right: 30px;
+    height: 20px;
+    top: 30px;
+  }
+
+#submitBtn { 
+
+  -moz-box-shadow:inset 0px 1px 0px 0px #4c87c7;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #4c87c7;
+  box-shadow:inset 0px 1px 0px 0px #4c87c7;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6d86d1', endColorstr='#62e0e0',GradientType=0);
+  background-color:#6d86d1;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  border-radius:3px;
+  border:1px solid #6682d6;
+
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:10px;
+  font-weight:bold;
+  padding:6px 6px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #000000;
+
+    width: 70px;
+    position: absolute;
+
+    top: 30px;
+    margin-left: 80px;
+    display:inline-block;
+    float: right;
+  }
+
+html, body {
+  height: 100%;
+  margin: 10;
+  padding: 10;
+}
+
+#panel {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  margin-left: -180px;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+}
+
+#map-canvas {
+  position: relative;
+  top: 100px;
+  margin-right:2%;
+  height: 100%;
+}
+
+
+
+#nav {
+  position: relative;
+  float: left;
+  border:double;
+  max-width: 30%;
+  padding: 30px;
+  min-height: 50px;
+  margin-right: 2%;
+  margin-top: 100px;
+}
+
+#main {
+  float: left;
+  
+}
+
+#panel, .panel {
+  font-family: 'courier-new','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+#panel select, #panel input, .panel select, .panel input {
+  font-size: 15px;
+}
+
+#panel select, .panel select {
+  width: 100%;
+}
+
+#panel i, .panel i {
+  font-size: 12px;
+}
+
+#myHeading {
+  top: 0px;
+  display: inline;
+  float: top;
+  position: relative;
+   height: auto; 
+  width: auto; 
+}
+
+#myimg{
+  position: absolute;
+left: 38%;
+display: inline;
+margin-bottom: 50px;
+float: left;
+display: inline;
+width: 220px; 
+height: 220px; 
+
+
+}
+
+p2{
+color:#B5D8CC;
+float: right;
+font-size: 800%;
+position: relative;
+display: inline-text;
+font-family:hill;
+}
+p3{
+color:#B5D8CC;
+font-size: 800%;
+position: relative;
+top: 0px;
+display: inline-text;
+font-family:hill;
+}
+
+
+#footer {
+  margin-bottom: 100px;
+  text-align: center;
+  font-size: 10px;
+  clear: both;
+  position: relative;
+  z-index: 10;
+  height: 3em;
+  top: 0px;
+  background:transparent;
+}
+  
+
+
+#img2 {
+  position: relative;
+  top: 100px;
+  width: 100px;
+
+  top: 50px;
+}
+
+body {
+ background-image: url("background4.jpg");
+}
