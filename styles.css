@@ -189,7 +189,7 @@ html, body {
 }
 
 #myimg{
-  position: absolute;
+ position: relative;
 left: 38%;
 display: inline;
 margin-bottom: 50px;
