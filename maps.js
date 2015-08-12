@@ -74,6 +74,8 @@ function initialize() {
   var e = document.getElementById("routeChosen");
   currentRoute = e.selectedIndex;
 
+  
+
   //directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions); //displays directions
   var sanfransisco = new google.maps.LatLng(37.774929500000000000, -122.419415500000010000);
   var mapOptions = {
@@ -87,8 +89,6 @@ function initialize() {
 
   stepDisplay = new google.maps.InfoWindow();
 
-   // Add a listener for the click event and call getElevation on that location
-  google.maps.event.addListener(map, 'click', getElevationByClick);
 
   document.getElementById("upward").innerHTML = "Upward Climb: " + totalUp;
   document.getElementById("downward").innerHTML = "Downward Climb: " + totalDown;
@@ -143,7 +143,10 @@ function getElevationByClick(event) {
 
 
 function enterValues() {
+
     start = document.getElementById("start").value;
+    
+
     if (start == null || start == "") {
         alert("Start must be filled out");
         return false;
@@ -154,13 +157,22 @@ function enterValues() {
         return false;
     }
     //
-    calcRoute(start, end, "0", null);
+    calcRoute(start, end, 0, null);
     startWaypoints(start, end)
 }
 
 function resetValues() {
+  for (var i = 0, len = routeOptions.length; i < len; i++)  //clears all the routes
+  {
+    if (routeOptions[i].myRoute){
+      routeOptions[i].myRoute.setMap(null);
+      ////console.log(routeOptions.length)
+    }
+    
+  }  
+  
   if (start && end) {
-    calcRoute(start, end, "0", null);
+    calcRoute(start, end, 0, null);
     currentRoute = 0
   } else {
     alert("Nothing to reset to!")
@@ -174,6 +186,9 @@ function getLongLat(myPoint1, myPoint2, callback){
   geocoder.geocode( { 'address': myPoint1}, function(results, status) {
      location1 = results[0].geometry.location;
     //alert(location1.lat() + '' + location1.lng());
+    if (location1 && location2){
+      callback(location1, location2);
+    }
     
   });
   geocoder.geocode( { 'address': myPoint2}, function(results, status) {
@@ -181,7 +196,9 @@ function getLongLat(myPoint1, myPoint2, callback){
     //alert(location2.lat() + '' + location2.lng());
     
     //////console.log(location1, location2)
-    callback(location1, location2);
+    if (location1 && location2){
+      callback(location1, location2);
+    }
   });
   
   
@@ -277,6 +294,8 @@ function chooseShortest(routes, index){
   ////console.log("Current Route is " + currentRoute);
   //showStepsAuto(routeOptions[currentRoute].myRoute);
 
+
+
   var localRoute = routeOptions[currentRoute].myRoute;
   ////console.log(currentRoute)
   ////console.log(routeOptions[currentRoute].myRoute)
@@ -359,13 +378,15 @@ function calcRoute(start, end, specRoute, myrequest)  //specRoute is only includ
             if (loop < response.routes.length){ //adds options to the dropdown menu
               routeOptions[i] = []
               loop ++;
-              if (i > 0){
+              //if (i > 0){
                 var x = document.getElementById("routeChosen");
-                var option = document.createElement("option");
-                option.text = "Route Choice " + String(i+1);
-                option.value = i;
-                x.add(option);
-              }
+
+                
+                //var option = document.createElement("option");
+                x.options[i].text = "Route Choice " + String(i+1);
+                x.options[i].value = i;
+                
+              //}
             }
           }
 
@@ -393,6 +414,7 @@ function calcRoute(start, end, specRoute, myrequest)  //specRoute is only includ
           } else if (myrequest){ //when looping through other possible paths with long/lat values
             
             var newRoute = null;
+            console.log("hey")
             for (var i = 0, len = routeOptions.length; i < len; i++) 
             {
               if (routeOptions[i].specialRequest){
@@ -444,7 +466,7 @@ function calcRoute(start, end, specRoute, myrequest)  //specRoute is only includ
           else 
           { //this shows all possible routes
             for (var i = 0, len = response.routes.length; i < len; i++) {
-              
+                console.log("ay")
                 
                 routeOptions[i].myRoute = new google.maps.DirectionsRenderer({
                     map: map,
@@ -453,10 +475,10 @@ function calcRoute(start, end, specRoute, myrequest)  //specRoute is only includ
                     draggable: true,
                     suppressMarkers: true
                 });
-                //////console.log(myRoute.directions.routes[0].legs[0].steps);
+                console.log(routeOptions[i].myRoute.directions.routes[0].legs[0].duration)
                 //routeOptions[i].myRoute = myRoute;
-                routeOptions[newRoute].duration = response.routes[0].legs[0].duration;
-            
+                routeOptions[i].duration = routeOptions[i].myRoute.directions.routes[0].legs[0].duration;
+                
                 routeOptions[i].weight = getElevationTotal(routeOptions[i].myRoute, i);
                 
                 google.maps.event.addListener(routeOptions[currentRoute].myRoute, 'directions_changed', function() {
@@ -589,6 +611,8 @@ function showSteps(directionResult, myRoutz, myindex) {
 
   document.getElementById("distance").innerHTML = "Total Distance: " + myRoute.distance.text;
 
+  document.getElementById("time").innerHTML = "Total Time: " + routeOptions[currentRoute].duration.text;
+
 }
 
 function attachInstructionText(marker, text) {
@@ -603,9 +627,10 @@ function attachInstructionText(marker, text) {
 
 function getElevationTotal(routes, index){// gets weight by adding elevatin change and distance traveled
   var weight = 0;
+  var distance = 0;
 
   var locations = [];
-
+  console.log("hi")
   //////console.log(routes.directions.routes[0].legs[0].steps.length)
 
   //routes.directions.routes[0].legs[0].steps
@@ -638,14 +663,15 @@ function getElevationTotal(routes, index){// gets weight by adding elevatin chan
             if (i < results.length -1){
                 var difference = results[i].elevation - results[i+1].elevation;
                  
-                 var distance = google.maps.geometry.spherical.computeDistanceBetween (results[i].location, results[i + 1].location);
+                 var mydistance = google.maps.geometry.spherical.computeDistanceBetween (results[i].location, results[i + 1].location);
                 ////console.log(distance);
 
                
                 difference = Math.round10(difference, -2);
 
                 
-                weight += Math.abs(difference); //+ distance;
+                weight += Math.abs(difference);
+                distance += mydistance;
                 ////console.log(weight);
             } else {
                 myDirections += "<br> Arrive ";
@@ -659,8 +685,13 @@ function getElevationTotal(routes, index){// gets weight by adding elevatin chan
         routeOptions[index].weight = weight;
 
         var x = document.getElementById("routeChosen");
-        x.options[index].text = ("Route Choice " + String(index+1) + " has weight: " + weight);
+        x.options[index].text = (String(index+1) + ". # E: " + Math.round10(weight, -1) + " D: " + Math.round10(distance, -1));
         x.options[index].value = weight;
+
+
+
+        //console.log("Does x exist?");
+        //        console.log(x);
 
         //////console.log("Final pt 2: " + routeOptions[index].weight);
         //console.log("Route Options: ")
