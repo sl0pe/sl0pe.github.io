@@ -1,25 +1,29 @@
 
-@font-face { font-family:hill; src: url('Hill.ttf'); } 
- @font-face { font-family:hill2; src: url('Hill2.ttf'); }
  @font-face { font-family:trash; src: url('trash.ttf'); }
  
-  
 
   #to{
     position: relative;
-    margin-left: 80px;
+    margin-left: 90px;
     display: inline-block;
     float: center;
+    font-size: 18px;
+    font-family: 'Helvetica Neue', arial, sans-serif;
+    color: #333;
+    font-weight: 200;
  
   }
   #from{
     position: relative;
     display: inline-block;
     float: left;
+    font-size: 18px;
+    font-family: 'Helvetica Neue', arial, sans-serif;
+    color: #333;
+    font-weight: 200;
  
   }
   #inputSpaces{
-    font-family: courier new;
     font-size: 150%;
     position: relative;
     left: 22%;
@@ -103,7 +107,6 @@
 
   cursor:pointer;
   color:#ffffff;
-  font-family:Arial;
   font-size:10px;
   font-weight:bold;
   padding:6px 6px;
@@ -124,6 +127,8 @@ html, body {
   margin: 10;
   padding: 10;
 }
+
+
 
 #panel {
   position: absolute;
@@ -150,9 +155,10 @@ html, body {
   float: left;
   border:double;
   max-width: 30%;
-  padding: 30px;
+  padding: 20px;
   min-height: 50px;
   margin-right: 2%;
+  margin-left: 2%;
   margin-top: 100px;
 }
 
@@ -162,7 +168,6 @@ html, body {
 }
 
 #panel, .panel {
-  font-family: 'courier-new','sans-serif';
   line-height: 30px;
   padding-left: 10px;
 }
@@ -189,7 +194,7 @@ html, body {
 }
 
 #myimg{
- position: relative;
+  position: absolute;
 left: 38%;
 display: inline;
 margin-bottom: 50px;
@@ -241,6 +246,341 @@ font-family:hill;
   top: 50px;
 }
 
-body {
- background-image: url("background4.jpg");
+
+
+/* --- EASYDROPDOWN2 DEFAULT THEME --- */
+
+/* PREFIXED CSS */
+
+
+/* WRAPPER */
+
+.dropdown2{
+ position: relative;
+  width: 90%;
+  cursor: pointer;
+  font-weight: 200;
+  font-size: 18px;
+  font-family: 'Helvetica Neue', arial, sans-serif;
+  color: #333;
+  background: #f8f8f8;
+
+  height: 50px;
+  border: 1px solid #f8f8f8;
+  cursor: pointer;
+  background: #f8f8f8;
+
+  border-radius: 3px;
+
+  margin-top: 5px;
+  
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
+
+#reset{
+ 
+  color: #f11;
+  background: #f8f8f8;
+
+ 
+}
+
+
+/* --- RESET --- */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section{
+  display: block;
+}
+
+table{
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-weight: normal;
+}
+
+a{
+  text-decoration: none;
+}
+
+nav li{
+  list-style-type: none;
+  display: inline-block;
+}
+
+
+
+/* --- DEMO STYLES --- */
+
+body{
+  font-family: 'Helvetica Neue', arial, sans-serif;
+  color: #333;
+  
+  -webkit-font-smoothing: antialiased;
+}
+
+header{
+  padding: 15px 0 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+h1,h2,h3{
+    font-weight: 700;
+}
+
+.just{
+  text-align: justify;
+}
+
+.just:after{
+  content: '';
+  width: 100%;
+  display: inline-block;
+}
+
+.just > *{
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.ib{
+  display: inline-block;
+}
+
+header .wrapper{
+  padding: 0 30px;
+}
+
+header h1{
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+header h2{
+  font-weight: 400;
+  font-size: 20px;
+}
+
+
+section{
+  position: relative;
+  font-size: 0.1px;
+  text-align: justify;
+}
+
+section:after{
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+
+section .wrapper{
+  padding: 0px;
+}
+
+section h3{
+  font-size: 20px;
+  margin-bottom: 1em;
+  padding-top: .5em;
+}
+
+section h4{
+  font-size: 18px;
+  margin-bottom: 1em;
+  font-weight: 300;
+}
+
+.col{
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+}
+
+.col_1{
+  width: 55%;
+}
+
+.col_2{
+  width: 45%;
+  max-width: 520px;
+  background: #333;
+  color: #ddd;
+  
+  box-shadow: inset 20px 0 20px -20px rgba(0,0,0,.6);
+}
+
+.col_2 h3,
+.col_2 strong{
+  color: #fff;
+}
+
+p,
+.text li{
+  font-size: 16px;
+  font-weight:  300;
+}
+
+p.legal{
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.col_2 p,
+.col_2 .text li{
+  font-weight: 400;
+}
+
+.btn{
+  display: inline-block;
+  background: #d24a67;
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  padding: 10px 12px;
+  margin-bottom: 30px;
+  
+  border-radius: 5px;
+  
+  -webkit-transition: all 150ms ease-in-out;
+  -moz-transition: all 150ms ease-in-out;
+  -ms-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
+
+.btn.ib{
+  margin-right: 10px;
+}
+
+.btn:hover,
+.btn:focus{
+  background: #fc6767;
+  color: #fff;
+  outline: 0 none;
+  
+  box-shadow: inset 0 0 10px rgba(0,0,0,.2);
+}
+
+p{
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+p code,
+li code{
+  font-size: 15px;
+  background: rgba(255,255,255,.7);
+  color: #333;
+  padding: 2px;
+  
+  border-radius: 1px;
+}
+
+a{
+  color: #d24a67;
+}
+
+a:hover{
+  color: #fc6767;
+}
+
+pre{
+  font-size: 15px;
+  color: #c4ae78;
+  margin: 15px 0 30px;
+  
+  -webkit-font-smoothing: auto;
+}
+
+ul.text{
+  margin: 0 0 30px 18px;
+  list-style: square;
+}
+
+
+
+pre.prettyprint{background:#141414;color:#f8f8f8;}
+pre.prettyprint span.str,pre.prettyprint span.atv{color:#8f9d6a;}
+pre.prettyprint span.kwd,pre.prettyprint span.pun{color:#cda869;}
+pre.prettyprint span.com{color:#5f5a60;font-style:italic;}
+pre.prettyprint span.typ{color:#9b703f;}
+pre.prettyprint span.lit{color:#cf6a4c;}
+pre.prettyprint span.pln{color:#7587a6;}
+pre.prettyprint span.tag{color:#ac885b;}
+pre.prettyprint span.atn{color:#e0c589;}
+pre.prettyprint span.dec{color:#494949;}
+pre.prettyprint{
+  border: 0 none !important;
+  background: transparent !important;
+}
+
+@media all and (max-width: 1040px){
+  .col,
+  .col_2,
+  .col_1{
+    display: block;
+    width: auto;
+    max-width: 100%;
+    background: #fff;
+    color: #333;
+    box-shadow: none;
+  }
+  
+  .col_2 h3,
+  .col_2 strong{
+    color: #333;
+  }
+  
+  pre.prettyprint{
+    font-size: 14px;
+    background: #333 !important;
+    padding: 12px !important;
+    border-radius: 5px !important;
+    overflow-x: scroll;
+  }
+  
+  hgroup{
+    text-align: left;
+    margin-bottom: 10px;
+  }
+}
+
+
+#share-buttons img {
+padding: 2px;
+border: 0;
+box-shadow: 0;
+display: inline;
+
+p.center {
+    text-align: center;
+}
+} 
+
+
+
