@@ -4,12 +4,26 @@
     <meta charset="UTF-8">
     <title></title>
 
+
+    
+    <meta name="viewport" content="width=320, initial-scale=1, maximum-scale=1, user-scalable=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <meta name="keywords" content="easydropdown, jquery, drop-down, bootstrap, front-end, css3, jquery, patrick kunka, barrel, new york, manhattan, mixitup"/>
+
+    <link rel="stylesheet" type="text/css" href="themes/easydropdown.css"/>
+  
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="src/jquery.easydropdown.js"></script>
+
+  
+
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
+
     <title>No sl0pe</title>
     <link rel="stylesheet" href="styles.css">
     
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
 
     
@@ -23,7 +37,7 @@
    
     <p3>  - </p3> 
   </div>
-   <img id="myimg" src="https://cloud.githubusercontent.com/assets/13592022/9049345/fac5d274-39f5-11e5-98da-404884d91ee5.jpg"  ></img> 
+   <img id="myimg" src="https://cloud.githubusercontent.com/assets/13592022/9049345/fac5d274-39f5-11e5-98da-404884d91ee5.jpg"></img> 
    
 
 
@@ -49,10 +63,10 @@
         <p id="upward">Upward Climb:</p>
         <p id="downward">Downward Climb:</p>
 
-        <h5 id="time">Total Time:</h5>
-        <h5 id="distance">Total Distance:</h5>
+        <p id="time">Total Time:</p>
+        <p id="distance">Total Distance:</p>
 
-        <input class="button" name="reset" type="reset" value="Reset to Suggestion" onclick="resetValues()" />
+        <input class="dropdown2" id="reset" name="reset" type="reset" value="Google Directions" onclick="resetValues()" />
 
 
         <!--
@@ -65,17 +79,25 @@
         the value determines what slopes to avoid
         -->
 
-        <select id="travelMethod">
-          <option value=(1/12)>Wheelchair</option>
-          <option value=0.4>Bike Max</option>
-          <option value=0.2>Bike Comfort</option>
-          <option value=0.3>Driving</option>
-          <option value=0.3 selected>Walking</option>
-        </select>
+        <section>
+          
+                      <select class="dropdown2" id="travelMethod" >
+                        <option value=(1/12)>Wheelchair</option>
+                        <option value=0.4>Bike Max</option>
+                        <option value=0.2>Bike Comfort</option>
+                        <option value=0.3>Driving</option>
+                        <option value=0.3 selected>Walking</option>
+                      </select>
 
-        <select id="routeChosen" onchange="changeCurrentRoute(this)">
-          <option value=0 selected="">Google Recommendation: 1</option>
-        </select>
+                       <select class="dropdown2" id="routeChosen" onchange="changeCurrentRoute(this)">
+                          <option value=0 selected>Google Recommendation: 1</option>
+                      </select>
+               
+
+          </section>
+
+
+       
         
 
          <p id="steps"></p>
@@ -98,6 +120,13 @@
       brittneyhill7@yahoo.com  <br> 
       helenalmtm@gmail.com <br> 
       juhnayee@gmail.com </p>
+
+       <p> 
+       
+        <p> 
+         <a href="http://www.facebook.com/noslope" target="_blank">
+          <img src="https://simplesharebuttons.com/images/somacro/facebook.png" height="30" width="30"/>
+        </p></a>
       </h1>
       
       </div>
