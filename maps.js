@@ -971,3 +971,11 @@ function sortOptions(list) {
     
    // 
 }
+$.ajax({
+    type: "GET",
+    url: "/fromLua",
+    data: { id = "test"},
+    dataType: "html",
+    success: your function
+});
+
